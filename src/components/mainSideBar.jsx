@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { propertyTypes } from "../utility/common";
 
 const MainSideBar = () => {
   return (
@@ -14,14 +16,14 @@ const MainSideBar = () => {
                 src="dist/img/photo.jpg"
                 style={{ width: 160 }}
                 className="img-circle"
-                alt="User Image"
+                alt="User"
               />
             </div>
             <div className="pull-left info">
               <p>DharmVeer Singh</p>
-              <a href="#">
+              <Link to="#">
                 <i className="fa fa-circle text-success" /> Online
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -29,25 +31,49 @@ const MainSideBar = () => {
           <ul className="sidebar-menu" data-widget="tree">
             <li className="header">MAIN NAVIGATION</li>
             <li className="active">
-              <a href="/">
+              <Link to="/">
                 <i className="fa fa-dashboard" /> <span>Dashboard</span>
                 <span className="pull-right-container">
                   {/* <i className="fa fa-angle-left pull-right" /> */}
                 </span>
-              </a>
-              {/* <ul className="treeview-menu">
+              </Link>
+            </li>
+            <li className="active">
+              <Link to="/buyer">
+                <i className="fa fa-home" /> <span>Buyer Section</span>
+                <span className="pull-right-container">
+                  {/* <i className="fa fa-angle-left pull-right" /> */}
+                </span>
+              </Link>
+            </li>
+            {propertyTypes
+              .filter(item => item.id !== 0)
+              .map(item => {
+                return (
+                  <li className="active " key={item.id}>
+                    <Link to={"/" + item.type}>
+                      <i className={"ion " + item.iconClass} />
+                      <span>{item.lable}</span>
+                      <span className="pull-right-container">
+                        {/* <i className="fa fa-angle-left pull-right" /> */}
+                      </span>
+                    </Link>
+                  </li>
+                );
+              })}
+
+            {/* <ul className="treeview-menu">
                 <li className="active">
-                  <a href="index.html">
+                  <Link to="index.html">
                     <i className="fa fa-circle-o" /> Dashboard v1
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="index2.html">
+                  <Link to="index2.html">
                     <i className="fa fa-circle-o" /> Dashboard v2
-                  </a>
+                  </Link>
                 </li>
               </ul> */}
-            </li>
           </ul>
         </section>
         {/* /.sidebar */}

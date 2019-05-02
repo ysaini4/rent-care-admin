@@ -1,9 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 const Header = () => {
   return (
     <header className="main-header">
       {/* Logo */}
-      <a href="index2.html" className="logo">
+      <Link to="index2.html" className="logo">
         {/* mini logo for sidebar mini 50x50 pixels */}
         <span className="logo-mini">
           <b>R</b>CA
@@ -12,30 +14,30 @@ const Header = () => {
         <span className="logo-lg">
           <b>Rent-</b>Care<small> Admin</small>
         </span>
-      </a>
+      </Link>
       {/* Header Navbar: style can be found in header.less */}
       <nav className="navbar navbar-static-top">
         {/* Sidebar toggle button*/}
-        <a
-          href="#"
+        <Link
+          to="#"
           className="sidebar-toggle"
           data-toggle="push-menu"
           role="button"
         >
           <span className="sr-only">Toggle navigation</span>
-        </a>
+        </Link>
         <div className="navbar-custom-menu">
           <ul className="nav navbar-nav">
             <li className="dropdown user user-menu">
-              <a href="#" className="dropdown-toggle" data-toggle="dropdown">
+              <Link to="#" className="dropdown-toggle" data-toggle="dropdown">
                 <img
                   src="dist/img/photo.jpg"
                   style={{ width: 30 }}
                   className="user-image"
-                  alt="User Image"
+                  alt="User"
                 />
                 <span className="hidden-xs">DVS</span>
-              </a>
+              </Link>
               <ul className="dropdown-menu">
                 {/* User image */}
                 <li className="user-header">
@@ -43,7 +45,7 @@ const Header = () => {
                     src="dist/img/photo.jpg"
                     style={{ width: 100 }}
                     className="img-circle"
-                    alt="User Image"
+                    alt="User"
                   />
                   <p>
                     Dharm Veer Singh - Admin
@@ -54,13 +56,13 @@ const Header = () => {
                 {/* <li className="user-body">
                   <div className="row">
                     <div className="col-xs-4 text-center">
-                      <a href="#">Followers</a>
+                      <Link to="#">Followers</Link>
                     </div>
                     <div className="col-xs-4 text-center">
-                      <a href="#">Sales</a>
+                      <Link to="#">Sales</Link>
                     </div>
                     <div className="col-xs-4 text-center">
-                      <a href="#">Friends</a>
+                      <Link to="#">Friends</Link>
                     </div>
                   </div>
                   
@@ -68,23 +70,23 @@ const Header = () => {
                 {/* Menu Footer*/}
                 <li className="user-footer">
                   {/* <div className="pull-left">
-                    <a href="#" className="btn btn-default btn-flat">
+                    <Link to="#" className="btn btn-default btn-flat">
                       Profile
-                    </a>
+                    </Link>
                   </div> */}
                   <div className="pull-right">
-                    <a href="#" className="btn btn-default btn-flat">
+                    <Link to="#" className="btn btn-default btn-flat">
                       Sign out
-                    </a>
+                    </Link>
                   </div>
                 </li>
               </ul>
             </li>
             {/* Control Sidebar Toggle Button */}
             <li>
-              <a href="#" data-toggle="control-sidebar">
+              <Link to="#" data-toggle="control-sidebar">
                 <i className="fa fa-gears" />
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
