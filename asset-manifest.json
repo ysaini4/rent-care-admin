@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/rent-care-admin/static/css/main.bcb68dd1.chunk.css",
-    "main.js": "/rent-care-admin/static/js/main.78b615f9.chunk.js",
-    "main.js.map": "/rent-care-admin/static/js/main.78b615f9.chunk.js.map",
+    "main.css": "/rent-care-admin/static/css/main.61415df4.chunk.css",
+    "main.js": "/rent-care-admin/static/js/main.3aafa8f4.chunk.js",
+    "main.js.map": "/rent-care-admin/static/js/main.3aafa8f4.chunk.js.map",
     "runtime~main.js": "/rent-care-admin/static/js/runtime~main.697f83c6.js",
     "runtime~main.js.map": "/rent-care-admin/static/js/runtime~main.697f83c6.js.map",
-    "static/js/2.3310f33a.chunk.js": "/rent-care-admin/static/js/2.3310f33a.chunk.js",
-    "static/js/2.3310f33a.chunk.js.map": "/rent-care-admin/static/js/2.3310f33a.chunk.js.map",
+    "static/css/2.c489bcc4.chunk.css": "/rent-care-admin/static/css/2.c489bcc4.chunk.css",
+    "static/js/2.f8cb27ef.chunk.js": "/rent-care-admin/static/js/2.f8cb27ef.chunk.js",
+    "static/js/2.f8cb27ef.chunk.js.map": "/rent-care-admin/static/js/2.f8cb27ef.chunk.js.map",
     "index.html": "/rent-care-admin/index.html",
-    "precache-manifest.68a7266ae9c11aa982b453b43e8cf841.js": "/rent-care-admin/precache-manifest.68a7266ae9c11aa982b453b43e8cf841.js",
+    "precache-manifest.7d7cc61c3ac615901ea5f31a23b336b7.js": "/rent-care-admin/precache-manifest.7d7cc61c3ac615901ea5f31a23b336b7.js",
     "service-worker.js": "/rent-care-admin/service-worker.js",
-    "static/css/main.bcb68dd1.chunk.css.map": "/rent-care-admin/static/css/main.bcb68dd1.chunk.css.map",
-    "static/media/logo.svg": "/rent-care-admin/static/media/logo.5d5d9eef.svg"
+    "static/css/2.c489bcc4.chunk.css.map": "/rent-care-admin/static/css/2.c489bcc4.chunk.css.map",
+    "static/css/main.61415df4.chunk.css.map": "/rent-care-admin/static/css/main.61415df4.chunk.css.map"
   }
 }
