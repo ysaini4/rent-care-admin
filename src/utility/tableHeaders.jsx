@@ -1,5 +1,6 @@
 export const corporate = [
   "_id",
+  "PropertyFor",
   "Property",
   "Ptype",
   "Company Name",
@@ -31,6 +32,7 @@ export const corporate = [
 ];
 export const commercial = [
   "_id",
+  "PropertyFor",
   "Property",
   "Ptype",
   "Name",
@@ -60,6 +62,7 @@ export const commercial = [
 ];
 export const residential = [
   "_id",
+  "PropertyFor",
   "Property",
   "Ptype",
   "Name",
@@ -105,6 +108,7 @@ export const residential = [
 ];
 export const pg = [
   "_id",
+  "PropertyFor",
   "Property",
   "No of Rooms",
   "PG Name",
@@ -142,6 +146,7 @@ export const pg = [
 ];
 export const hotel = [
   "_id",
+  "PropertyFor",
   "Property",
   "No of Rooms",
   "Hotel Name",
@@ -173,6 +178,7 @@ export const hotel = [
 ];
 export const restaurant = [
   "_id",
+  "PropertyFor",
   "Property",
   "Restaurant Name",
   "Refrance Person",
