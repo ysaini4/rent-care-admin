@@ -1,7 +1,7 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 axios.defaults.baseURL = "http://localhost:3000";
-//axios.defaults.baseURL = "https://rent-care-server.herokuapp.com/";
+axios.defaults.baseURL = "https://rent-care-server.herokuapp.com/";
 export const httpService = async (method, url, data = "", headers = "") => {
   try {
     const res = await axios({
