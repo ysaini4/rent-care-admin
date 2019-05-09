@@ -9,7 +9,8 @@ const SmallBoxes = ({ propertyList }) => {
   let smallBoxData = propertyTypes
     .filter(item => item.id !== 0)
     .map(item => {
-      item.count = pCount[item.type];
+      item.count = 0;
+      if (pCount[item.type]) item.count = pCount[item.type];
       return item;
     });
   return (
