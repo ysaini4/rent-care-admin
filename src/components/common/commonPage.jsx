@@ -1,5 +1,9 @@
 import React, { Component } from "react";
-import { getProperties, updateProperty } from "../../services/adminServices";
+import {
+  getProperties,
+  updateProperty,
+  deleteProperty
+} from "../../services/adminServices";
 import { getTableHeader } from "../../utility/tableHeaders";
 import Header from "./Header";
 import Table from "./table";
@@ -48,6 +52,11 @@ class CommonPage extends Component {
     await updateProperty(data);
     this.propertiesList();
   };
+  onDelete = async pId => {
+    const data = { _id: pId };
+    await deleteProperty(data);
+    this.propertiesList();
+  };
   render() {
     return (
       <React.Fragment>
@@ -66,6 +75,7 @@ class CommonPage extends Component {
             onPublish={this.onPublish}
             onShowAtHome={this.onShowAtHome}
             onMarkAsRead={this.onMarkAsRead}
+            onDelete={this.onDelete}
           />
         </section>
         {/* /.content */}

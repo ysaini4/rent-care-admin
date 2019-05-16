@@ -15,6 +15,7 @@ class DashBoard extends Component {
     tableKeys: [],
     propertyTypes
   };
+
   componentDidMount() {
     this.propertiesList();
   }

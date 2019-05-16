@@ -46,3 +46,11 @@ export const propertyTypes = [
 export const firstCharCapital = string => {
   return string.charAt(0).toUpperCase() + string.slice(1);
 };
+
+export const getJwt = () => {
+  try {
+    return localStorage.getItem("rc-x-auth-token");
+  } catch (err) {
+    return null;
+  }
+};

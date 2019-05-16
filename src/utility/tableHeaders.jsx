@@ -29,7 +29,8 @@ export const corporate = [
   "Date",
   "MarkAsRead",
   "Publish",
-  "ShowAtHome"
+  "ShowAtHome",
+  "Delete"
 ];
 export const commercial = [
   "_id",
@@ -60,7 +61,8 @@ export const commercial = [
   "Date",
   "MarkAsRead",
   "Publish",
-  "ShowAtHome"
+  "ShowAtHome",
+  "Delete"
 ];
 export const residential = [
   "_id",
@@ -107,7 +109,8 @@ export const residential = [
   "Date",
   "MarkAsRead",
   "Publish",
-  "ShowAtHome"
+  "ShowAtHome",
+  "Delete"
 ];
 export const pg = [
   "_id",
@@ -146,7 +149,8 @@ export const pg = [
   "Date",
   "MarkAsRead",
   "Publish",
-  "ShowAtHome"
+  "ShowAtHome",
+  "Delete"
 ];
 export const hotel = [
   "_id",
@@ -179,7 +183,8 @@ export const hotel = [
   "Date",
   "MarkAsRead",
   "Publish",
-  "ShowAtHome"
+  "ShowAtHome",
+  "Delete"
 ];
 export const restaurant = [
   "_id",
@@ -212,7 +217,8 @@ export const restaurant = [
   "Date",
   "MarkAsRead",
   "Publish",
-  "ShowAtHome"
+  "ShowAtHome",
+  "Delete"
 ];
 export const getTableHeader = type => {
   if (type === "corporate") return corporate;

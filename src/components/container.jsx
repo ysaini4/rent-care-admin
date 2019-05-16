@@ -1,34 +1,40 @@
 import React from "react";
-import DashBoard from "./dashboard";
 import { Route, Redirect, Switch } from "react-router-dom";
 import NotFound from "./notFound";
-import BuyerSection from "./buyer-section";
-import CommonPage from "./common/commonPage";
 import { propertyTypes } from "../utility/common";
+import Login from "./login";
+import Wrap from "../utility/wrapper";
 const Container = () => {
   return (
     <React.Fragment>
       {/* Content Wrapper. Contains page content */}
-      <div className="content-wrapper">
-        <Switch>
-          <Route path="/" component={DashBoard} exact />
-          {propertyTypes
-            .filter(item => item.id !== 0)
-            .map(item => {
-              return (
-                <Route
-                  path={"/" + item.type}
-                  key={item.id}
-                  render={props => <CommonPage pType={item} {...props} />}
-                />
-              );
-            })}
-          <Route path="/buyer" component={BuyerSection} />
-          <Route path="/not-found" component={NotFound} />
-
-          <Redirect to="/not-found" />
-        </Switch>
-      </div>
+      <Switch>
+        <Route
+          path="/"
+          render={props => <Wrap component="DashBoard" {...props} />}
+          exact
+        />
+        <Route path="/login" component={Login} exact />
+        {propertyTypes
+          .filter(item => item.id !== 0)
+          .map(item => {
+            return (
+              <Route
+                path={"/" + item.type}
+                key={item.id}
+                render={props => (
+                  <Wrap pType={item} {...props} component="CommonPage" />
+                )}
+              />
+            );
+          })}
+        <Route
+          path="/buyer"
+          render={props => <Wrap {...props} component="BuyerSection" />}
+        />
+        <Route path="/not-found" component={NotFound} />
+        <Redirect to="/not-found" />
+      </Switch>
     </React.Fragment>
   );
 };
