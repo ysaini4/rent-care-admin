@@ -1,17 +1,37 @@
 import React, { Component } from "react";
 import ImageModal from "./imageModal";
 import ConfirmModal from "./confirmModal";
+import { updateProperty, deleteProperty } from "../../services/adminServices";
 class Table extends Component {
   state = { currentImage: "", deleteId: "" };
+  onMarkAsRead = async pId => {
+    const data = { condation: { _id: pId }, updateData: { MarkAsRead: true } };
+    await updateProperty(data);
+    this.props.propertiesList();
+  };
+  onPublish = async (pId, value) => {
+    const data = { condation: { _id: pId }, updateData: { Publish: value } };
+    await updateProperty(data);
+    this.props.propertiesList();
+  };
+  onShowAtHome = async (pId, value) => {
+    const data = { condation: { _id: pId }, updateData: { ShowAtHome: value } };
+    await updateProperty(data);
+    this.props.propertiesList();
+  };
+  onDelete = async pId => {
+    const data = { _id: pId };
+    await deleteProperty(data);
+    this.props.propertiesList();
+  };
   renderTableCol = (col, tableRow) => {
-    const { onPublish, onShowAtHome, onMarkAsRead } = this.props;
     let colElement;
     if (col === "Publish") {
       if (!tableRow[col]) {
         colElement = (
           <button
             className="btn btn-sm bg-red"
-            onClick={() => onPublish(tableRow._id, !tableRow[col])}
+            onClick={() => this.onPublish(tableRow._id, !tableRow[col])}
           >
             <i className="fa  fa-times-circle" />
           </button>
@@ -20,7 +40,7 @@ class Table extends Component {
         colElement = (
           <button
             className="btn btn-sm bg-green"
-            onClick={() => onPublish(tableRow._id, !tableRow[col])}
+            onClick={() => this.onPublish(tableRow._id, !tableRow[col])}
           >
             <i className="fa  fa-check-circle" />
           </button>
@@ -31,7 +51,7 @@ class Table extends Component {
         colElement = (
           <button
             className="btn btn-sm bg-red"
-            onClick={() => onShowAtHome(tableRow._id, !tableRow[col])}
+            onClick={() => this.onShowAtHome(tableRow._id, !tableRow[col])}
           >
             <i className="fa fa-times-circle" />
           </button>
@@ -40,7 +60,7 @@ class Table extends Component {
         colElement = (
           <button
             className="btn btn-sm bg-green"
-            onClick={() => onShowAtHome(tableRow._id, !tableRow[col])}
+            onClick={() => this.onShowAtHome(tableRow._id, !tableRow[col])}
           >
             <i className="fa  fa-check-circle" />
           </button>
@@ -51,7 +71,7 @@ class Table extends Component {
         colElement = (
           <button
             className="btn btn-sm bg-red"
-            onClick={() => onMarkAsRead(tableRow._id)}
+            onClick={() => this.onMarkAsRead(tableRow._id)}
           >
             <i className="fa  fa-times-circle" />
           </button>
@@ -91,7 +111,13 @@ class Table extends Component {
     return colElement;
   };
   render() {
-    const { tableTitle, tableKeys, filterPropertyList, onDelete } = this.props;
+    const {
+      tableTitle,
+      tableKeys,
+      filterPropertyList,
+      onSearch,
+      searchTextValue
+    } = this.props;
     return (
       <React.Fragment>
         <div className="row">
@@ -99,6 +125,19 @@ class Table extends Component {
             <div className="box">
               <div className="box-header">
                 <h3 className="box-title">{tableTitle}</h3>
+                <div className="row" style={{ marginTop: 10 }}>
+                  <div className="col-md-12">
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Search..."
+                      onChange={({ currentTarget: input }) => {
+                        onSearch(input.value);
+                      }}
+                      value={searchTextValue}
+                    />
+                  </div>
+                </div>
               </div>
 
               {/* /.box-header */}
@@ -149,7 +188,7 @@ class Table extends Component {
           {/* /.col */}
         </div>
         <ImageModal imageSrc={this.state.currentImage} />
-        <ConfirmModal onDelete={onDelete} deleteId={this.state.deleteId} />
+        <ConfirmModal onDelete={this.onDelete} deleteId={this.state.deleteId} />
       </React.Fragment>
     );
   }

@@ -23,11 +23,12 @@ class BuyerSection extends Component {
     this.setState({ propertyList });
     this.onFilterProperty(this.state.currentSelectProperty);
   };
-  onFilterProperty = type => {
+  onFilterProperty = async type => {
     const filterPropertyList = this.state.propertyList.filter(
       item => item.Property === type
     );
-    let tableKeys = getTableHeader(type).filter(
+    let tableKeys = await getTableHeader(type);
+    tableKeys = tableKeys.filter(
       item =>
         item !== "_id" &&
         item !== "MarkAsRead" &&

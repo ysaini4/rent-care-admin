@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-const Header = () => {
+import axios from "axios";
+const Header = props => {
   return (
     <header className="main-header">
       {/* Logo */}
@@ -75,7 +75,14 @@ const Header = () => {
                     </Link>
                   </div> */}
                   <div className="pull-right">
-                    <Link to="#" className="btn btn-default btn-flat">
+                    <Link
+                      to="/login"
+                      className="btn btn-default btn-flat"
+                      onClick={() => {
+                        localStorage.removeItem("rc-x-auth-token");
+                        axios.defaults.headers.common["x-auth-token"] = "";
+                      }}
+                    >
                       Sign out
                     </Link>
                   </div>

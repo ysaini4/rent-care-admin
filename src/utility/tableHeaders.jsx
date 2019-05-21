@@ -1,3 +1,4 @@
+import { avoidHeaders } from "../services/adminServices";
 export const corporate = [
   "_id",
   "PropertyFor",
@@ -212,7 +213,6 @@ export const restaurant = [
   "Railway Station",
   "Metro Station",
   "Hospital",
-
   "Image",
   "Date",
   "MarkAsRead",
@@ -220,12 +220,19 @@ export const restaurant = [
   "ShowAtHome",
   "Delete"
 ];
-export const getTableHeader = type => {
-  if (type === "corporate") return corporate;
-  if (type === "commercial") return commercial;
-  if (type === "residential") return residential;
-  if (type === "pg") return pg;
-  if (type === "hotel") return hotel;
-  if (type === "restaurant") return restaurant;
+export const getTableHeader = async type => {
+  if (type === "corporate") return aHeaders(corporate);
+  if (type === "commercial") return aHeaders(commercial);
+  if (type === "residential") return aHeaders(residential);
+  if (type === "pg") return aHeaders(pg);
+  if (type === "hotel") return aHeaders(hotel);
+  if (type === "restaurant") return aHeaders(restaurant);
   return [];
+};
+const aHeaders = async HeaderList => {
+  const res = await avoidHeaders();
+  const filterdList = HeaderList.filter(
+    item => !res.avoidheaders.includes(item)
+  );
+  return filterdList;
 };

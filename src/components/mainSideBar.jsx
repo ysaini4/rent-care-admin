@@ -2,7 +2,20 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { propertyTypes } from "../utility/common";
 
-const MainSideBar = () => {
+const MainSideBar = ({ user }) => {
+  let tableHeaderSection = null;
+  if (user.userType === "admin") {
+    tableHeaderSection = (
+      <li className="active">
+        <Link to="/headers">
+          <i className="fa fa-home" /> <span>Header Control</span>
+          <span className="pull-right-container">
+            {/* <i className="fa fa-angle-left pull-right" /> */}
+          </span>
+        </Link>
+      </li>
+    );
+  }
   return (
     <React.Fragment>
       {/* Left side column. contains the logo and sidebar */}
@@ -61,7 +74,7 @@ const MainSideBar = () => {
                   </li>
                 );
               })}
-
+            {tableHeaderSection}
             {/* <ul className="treeview-menu">
                 <li className="active">
                   <Link to="index.html">

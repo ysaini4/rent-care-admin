@@ -1,13 +1,17 @@
 import React, { Component } from "react";
-import Header from "../components/header";
-import MainSideBar from "../components/mainSideBar";
-import Footer from "../components/footer";
-import DashBoard from "../components/dashboard";
-import CommonPage from "../components/common/commonPage";
-import BuyerSection from "../components/buyer-section";
-import { validateUser } from "../services/adminServices";
+import jwtDecode from "jwt-decode";
+
+import Header from "../header";
+import MainSideBar from "../mainSideBar";
+import Footer from "../footer";
+import DashBoard from "../dashboard";
+import CommonPage from "./commonPage";
+import BuyerSection from "../buyer-section";
+import TableHeaders from "../tableHeaders";
+
+import { validateUser } from "../../services/adminServices";
 class Wrap extends Component {
-  state = {};
+  state = { user: {} };
   componentDidMount() {
     global
       .$(".content-wrapper")
@@ -15,7 +19,15 @@ class Wrap extends Component {
   }
   async componentWillMount() {
     try {
-      console.log("on route change");
+      let token = localStorage.getItem("rc-x-auth-token");
+      if (token) {
+        const user = jwtDecode(token);
+        this.setState({ user });
+      }
+      if (!token) {
+        this.props.history.replace("/login");
+        return;
+      }
       const res = await validateUser();
       if (!res.status) {
         this.props.history.replace("/login");
@@ -23,7 +35,7 @@ class Wrap extends Component {
     } catch (err) {
       this.props.history.replace("/login");
 
-      console.log(err);
+      console.log(err, "token");
     }
   }
   render() {
@@ -32,10 +44,11 @@ class Wrap extends Component {
     if (component === "DashBoard") container = <DashBoard />;
     if (component === "CommonPage") container = <CommonPage pType={pType} />;
     if (component === "BuyerSection") container = <BuyerSection />;
+    if (component === "TableHeaders") container = <TableHeaders />;
     return (
       <React.Fragment>
         <Header />
-        <MainSideBar />
+        <MainSideBar user={this.state.user} />
         <div className="content-wrapper">{container}</div>
         <Footer />
         {/* <ControlledSideBar /> */}

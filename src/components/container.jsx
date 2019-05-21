@@ -3,7 +3,8 @@ import { Route, Redirect, Switch } from "react-router-dom";
 import NotFound from "./notFound";
 import { propertyTypes } from "../utility/common";
 import Login from "./login";
-import Wrap from "../utility/wrapper";
+import Wrap from "./common/wrapper";
+
 const Container = () => {
   return (
     <React.Fragment>
@@ -12,6 +13,11 @@ const Container = () => {
         <Route
           path="/"
           render={props => <Wrap component="DashBoard" {...props} />}
+          exact
+        />
+        <Route
+          path="/headers"
+          render={props => <Wrap component="TableHeaders" {...props} />}
           exact
         />
         <Route path="/login" component={Login} exact />

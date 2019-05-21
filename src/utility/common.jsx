@@ -54,3 +54,25 @@ export const getJwt = () => {
     return null;
   }
 };
+export const filterTableData = (keys, data, searchValue) => {
+  let searchArr = searchValue.split(" ");
+  let filteredData = data.filter(item => {
+    let found = true;
+    searchArr.forEach(searchItem => {
+      let cFound = false;
+      keys.forEach(key => {
+        if (item[key]) {
+          const colString = item[key].toString().toLowerCase();
+          if (colString.includes(searchItem.toLowerCase())) {
+            cFound = true;
+          }
+        }
+      });
+      if (!cFound) {
+        found = false;
+      }
+    });
+    return found;
+  });
+  return filteredData;
+};

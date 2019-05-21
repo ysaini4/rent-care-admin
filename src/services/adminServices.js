@@ -17,3 +17,12 @@ export const getBuyersProperties = async data => {
 export const validateUser = async () => {
   return await httpService("POST", "/user/validateuser");
 };
+export const avoidHeaders = async () => {
+  return await httpService("GET", "/property/avoidheaders");
+};
+export const headers = async () => {
+  return await httpService("GET", "/property/headers");
+};
+export const updateHeader = async data => {
+  return await httpService("PUT", "/property/updateheader", data);
+};

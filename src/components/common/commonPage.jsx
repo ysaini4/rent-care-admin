@@ -1,61 +1,54 @@
 import React, { Component } from "react";
-import {
-  getProperties,
-  updateProperty,
-  deleteProperty
-} from "../../services/adminServices";
+import { getProperties } from "../../services/adminServices";
 import { getTableHeader } from "../../utility/tableHeaders";
 import Header from "./Header";
 import Table from "./table";
-import { firstCharCapital } from "../../utility/common";
+import { firstCharCapital, filterTableData } from "../../utility/common";
 
 class CommonPage extends Component {
   state = {
     propertyList: [],
     filterPropertyList: [],
     currentSelectProperty: "0",
-    tableKeys: []
+    tableKeys: [],
+    searchTextValue: ""
   };
   componentDidMount() {
+    const { type } = this.props.pType;
     this.setState({ currentSelectProperty: this.props.pType.type });
-    this.propertiesList();
+    this.propertiesList({ Property: this.props.pType.type });
+    this.tableHeader(type);
   }
-  propertiesList = async () => {
-    const data = {};
+  propertiesList = async data => {
     const propertyList = await getProperties(data);
-    this.setState({ propertyList });
-    this.onFilterProperty(this.state.currentSelectProperty);
+    this.setState({ propertyList, filterPropertyList: propertyList });
+    this.handleSearch(
+      this.state.searchTextValue + " " + this.state.currentSelectProperty
+    );
+  };
+  tableHeader = async type => {
+    let tableKeys = await getTableHeader(type);
+    tableKeys = tableKeys.filter(item => item !== "_id");
+    this.setState({ tableKeys });
   };
   onFilterProperty = type => {
     const filterPropertyList = this.state.propertyList.filter(
       item => item.Property === type
     );
-    const tableKeys = getTableHeader(type).filter(item => item !== "_id");
     this.setState({
-      tableKeys,
       filterPropertyList,
       currentSelectProperty: type
     });
   };
-  onMarkAsRead = async pId => {
-    const data = { condation: { _id: pId }, updateData: { MarkAsRead: true } };
-    await updateProperty(data);
-    this.propertiesList();
+
+  onSearch = async value => {
+    this.setState({ searchTextValue: value });
+    this.handleSearch(value);
   };
-  onPublish = async (pId, value) => {
-    const data = { condation: { _id: pId }, updateData: { Publish: value } };
-    await updateProperty(data);
-    this.propertiesList();
-  };
-  onShowAtHome = async (pId, value) => {
-    const data = { condation: { _id: pId }, updateData: { ShowAtHome: value } };
-    await updateProperty(data);
-    this.propertiesList();
-  };
-  onDelete = async pId => {
-    const data = { _id: pId };
-    await deleteProperty(data);
-    this.propertiesList();
+  handleSearch = async value => {
+    const { propertyList, tableKeys } = this.state;
+    const filterPropertyList = filterTableData(tableKeys, propertyList, value);
+    this.setState({ filterPropertyList });
   };
   render() {
     return (
@@ -76,6 +69,9 @@ class CommonPage extends Component {
             onShowAtHome={this.onShowAtHome}
             onMarkAsRead={this.onMarkAsRead}
             onDelete={this.onDelete}
+            onSearch={this.onSearch}
+            searchTextValue={this.state.searchTextValue}
+            propertiesList={this.propertiesList}
           />
         </section>
         {/* /.content */}
