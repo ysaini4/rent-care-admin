@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/rent-care-admin/static/css/main.2475c990.chunk.css",
-    "main.js": "/rent-care-admin/static/js/main.f4d7b1ad.chunk.js",
-    "main.js.map": "/rent-care-admin/static/js/main.f4d7b1ad.chunk.js.map",
+    "main.js": "/rent-care-admin/static/js/main.67ccf16c.chunk.js",
+    "main.js.map": "/rent-care-admin/static/js/main.67ccf16c.chunk.js.map",
     "runtime~main.js": "/rent-care-admin/static/js/runtime~main.697f83c6.js",
     "runtime~main.js.map": "/rent-care-admin/static/js/runtime~main.697f83c6.js.map",
     "static/css/2.c489bcc4.chunk.css": "/rent-care-admin/static/css/2.c489bcc4.chunk.css",
-    "static/js/2.f1e94ef7.chunk.js": "/rent-care-admin/static/js/2.f1e94ef7.chunk.js",
-    "static/js/2.f1e94ef7.chunk.js.map": "/rent-care-admin/static/js/2.f1e94ef7.chunk.js.map",
+    "static/js/2.c05816f9.chunk.js": "/rent-care-admin/static/js/2.c05816f9.chunk.js",
+    "static/js/2.c05816f9.chunk.js.map": "/rent-care-admin/static/js/2.c05816f9.chunk.js.map",
     "index.html": "/rent-care-admin/index.html",
-    "precache-manifest.e69b3d51f011dd881dff4291336806aa.js": "/rent-care-admin/precache-manifest.e69b3d51f011dd881dff4291336806aa.js",
+    "precache-manifest.f0316fb3a731c21d7e10a2d63ac9a24d.js": "/rent-care-admin/precache-manifest.f0316fb3a731c21d7e10a2d63ac9a24d.js",
     "service-worker.js": "/rent-care-admin/service-worker.js",
     "static/css/2.c489bcc4.chunk.css.map": "/rent-care-admin/static/css/2.c489bcc4.chunk.css.map",
     "static/css/main.2475c990.chunk.css.map": "/rent-care-admin/static/css/main.2475c990.chunk.css.map"

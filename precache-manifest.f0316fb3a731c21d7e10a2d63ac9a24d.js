@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1b236a87cb86fa87a929118f3cf1fae3",
+    "revision": "6ec76609470dae1f10cf2820ac92965b",
     "url": "/rent-care-admin/index.html"
   },
   {
-    "revision": "be8b7f0f4da56f41e42e",
+    "revision": "1cbbd690dd3700099899",
     "url": "/rent-care-admin/static/css/2.c489bcc4.chunk.css"
   },
   {
-    "revision": "93ab68691f2e4c8a5ff0",
+    "revision": "b93555143a01818cf8a3",
     "url": "/rent-care-admin/static/css/main.2475c990.chunk.css"
   },
   {
-    "revision": "be8b7f0f4da56f41e42e",
-    "url": "/rent-care-admin/static/js/2.f1e94ef7.chunk.js"
+    "revision": "1cbbd690dd3700099899",
+    "url": "/rent-care-admin/static/js/2.c05816f9.chunk.js"
   },
   {
-    "revision": "93ab68691f2e4c8a5ff0",
-    "url": "/rent-care-admin/static/js/main.f4d7b1ad.chunk.js"
+    "revision": "b93555143a01818cf8a3",
+    "url": "/rent-care-admin/static/js/main.67ccf16c.chunk.js"
   },
   {
     "revision": "1bde261ff6036abb20e7",

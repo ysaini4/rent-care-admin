@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.0/workbox-sw.js");
 
 importScripts(
-  "/rent-care-admin/precache-manifest.e69b3d51f011dd881dff4291336806aa.js"
+  "/rent-care-admin/precache-manifest.f0316fb3a731c21d7e10a2d63ac9a24d.js"
 );
 
 self.addEventListener('message', (event) => {
