@@ -6,6 +6,7 @@ import { getTableHeader } from "../../utility/tableHeaders";
 import Header from "../common/Header";
 import PropertySelect from "./propertySelect";
 import Table from "../common/table";
+import { updateProperty, deleteProperty } from "../../services/adminServices";
 
 class DashBoard extends Component {
   state = {
@@ -67,9 +68,8 @@ class DashBoard extends Component {
             tableTitle={"Newly Added Properties."}
             tableKeys={this.state.tableKeys}
             filterPropertyList={this.state.filterPropertyList}
-            onPublish={this.onPublish}
-            onShowAtHome={this.onShowAtHome}
-            onMarkAsRead={this.onMarkAsRead}
+            updateProperty={updateProperty}
+            deleteProperty={deleteProperty}
             onSearch={this.onSearch}
             searchTextValue={this.state.searchTextValue}
             propertiesList={this.propertiesList}

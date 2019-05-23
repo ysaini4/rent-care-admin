@@ -6,6 +6,7 @@ import MainSideBar from "../mainSideBar";
 import Footer from "../footer";
 import DashBoard from "../dashboard";
 import CommonPage from "./commonPage";
+import CommonPageReq from "./commonPageReq";
 import BuyerSection from "../buyer-section";
 import TableHeaders from "../tableHeaders";
 
@@ -43,6 +44,8 @@ class Wrap extends Component {
     let container;
     if (component === "DashBoard") container = <DashBoard />;
     if (component === "CommonPage") container = <CommonPage pType={pType} />;
+    if (component === "CommonPageReq")
+      container = <CommonPageReq pType={pType} />;
     if (component === "BuyerSection") container = <BuyerSection />;
     if (component === "TableHeaders") container = <TableHeaders />;
     return (

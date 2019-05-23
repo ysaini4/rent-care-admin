@@ -1,27 +1,26 @@
 import React, { Component } from "react";
 import ImageModal from "./imageModal";
 import ConfirmModal from "./confirmModal";
-import { updateProperty, deleteProperty } from "../../services/adminServices";
 class Table extends Component {
   state = { currentImage: "", deleteId: "" };
   onMarkAsRead = async pId => {
     const data = { condation: { _id: pId }, updateData: { MarkAsRead: true } };
-    await updateProperty(data);
+    await this.props.updateProperty(data);
     this.props.propertiesList();
   };
   onPublish = async (pId, value) => {
     const data = { condation: { _id: pId }, updateData: { Publish: value } };
-    await updateProperty(data);
+    await this.props.updateProperty(data);
     this.props.propertiesList();
   };
   onShowAtHome = async (pId, value) => {
     const data = { condation: { _id: pId }, updateData: { ShowAtHome: value } };
-    await updateProperty(data);
+    await this.props.updateProperty(data);
     this.props.propertiesList();
   };
   onDelete = async pId => {
     const data = { _id: pId };
-    await deleteProperty(data);
+    await this.props.deleteProperty(data);
     this.props.propertiesList();
   };
   renderTableCol = (col, tableRow) => {

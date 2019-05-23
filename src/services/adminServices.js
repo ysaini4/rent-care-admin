@@ -8,6 +8,15 @@ export const updateProperty = async data => {
 export const deleteProperty = async data => {
   return await httpService("DELETE", "/property", data);
 };
+export const getPropertiesReq = async data => {
+  return await httpService("POST", "/requestproperty/search", data);
+};
+export const updatePropertyReq = async data => {
+  return await httpService("PUT", "/requestproperty/updateproperty", data);
+};
+export const deletePropertyReq = async data => {
+  return await httpService("DELETE", "/requestproperty", data);
+};
 export const login = async data => {
   return await httpServiceLogin("POST", "/user/login", data);
 };

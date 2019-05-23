@@ -36,6 +36,14 @@ class BuyerSection extends Component {
         item !== "ShowAtHome"
     );
     tableKeys = ["BName", "BEmail", "BMobile", ...tableKeys];
+    if (type === "corporate" || type === "commercial") {
+      tableKeys = [
+        "Company Name",
+        "Reference Name",
+        "Designation",
+        ...tableKeys
+      ];
+    }
     this.setState({
       tableKeys,
       filterPropertyList,

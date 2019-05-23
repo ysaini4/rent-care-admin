@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
 import NotFound from "./notFound";
-import { propertyTypes } from "../utility/common";
+import { propertyTypes, rPropertyTypes } from "../utility/common";
 import Login from "./login";
 import Wrap from "./common/wrapper";
 
@@ -30,6 +30,19 @@ const Container = () => {
                 key={item.id}
                 render={props => (
                   <Wrap pType={item} {...props} component="CommonPage" />
+                )}
+              />
+            );
+          })}
+        {rPropertyTypes
+          .filter(item => item.id !== 0)
+          .map(item => {
+            return (
+              <Route
+                path={"/" + item.url}
+                key={item.id}
+                render={props => (
+                  <Wrap pType={item} {...props} component="CommonPageReq" />
                 )}
               />
             );

@@ -43,6 +43,25 @@ export const propertyTypes = [
     iconClass: "ion-ios-wineglass"
   }
 ];
+export const rPropertyTypes = [
+  { id: 0, lable: "Select Property Type", type: "0" },
+  {
+    id: 1,
+    lable: "Cr/Cm Requests",
+    type: "corporate",
+    url: "rcorporate",
+    bgClass: "bg-purple",
+    iconClass: "ion-ios-wineglass"
+  },
+  {
+    id: 2,
+    lable: "Residential Requests",
+    type: "residential",
+    url: "rresidential",
+    bgClass: "bg-purple",
+    iconClass: "ion-ios-wineglass"
+  }
+];
 export const firstCharCapital = string => {
   return string.charAt(0).toUpperCase() + string.slice(1);
 };

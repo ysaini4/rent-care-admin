@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { propertyTypes } from "../utility/common";
+import { propertyTypes, rPropertyTypes } from "../utility/common";
 
 const MainSideBar = ({ user }) => {
   let tableHeaderSection = null;
@@ -65,6 +65,21 @@ const MainSideBar = ({ user }) => {
                 return (
                   <li className="active " key={item.id}>
                     <Link to={"/" + item.type}>
+                      <i className={"ion " + item.iconClass} />
+                      <span>{item.lable}</span>
+                      <span className="pull-right-container">
+                        {/* <i className="fa fa-angle-left pull-right" /> */}
+                      </span>
+                    </Link>
+                  </li>
+                );
+              })}
+            {rPropertyTypes
+              .filter(item => item.id !== 0)
+              .map(item => {
+                return (
+                  <li className="active " key={item.id}>
+                    <Link to={"/" + item.url}>
                       <i className={"ion " + item.iconClass} />
                       <span>{item.lable}</span>
                       <span className="pull-right-container">

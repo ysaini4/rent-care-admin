@@ -1,10 +1,13 @@
 import React, { Component } from "react";
-import { getProperties } from "../../services/adminServices";
+import { getPropertiesReq } from "../../services/adminServices";
 import { getTableHeader } from "../../utility/tableHeaders";
 import Header from "./Header";
 import Table from "./table";
 import { firstCharCapital, filterTableData } from "../../utility/common";
-import { updateProperty, deleteProperty } from "../../services/adminServices";
+import {
+  updatePropertyReq,
+  deletePropertyReq
+} from "../../services/adminServices";
 
 class CommonPage extends Component {
   state = {
@@ -21,7 +24,7 @@ class CommonPage extends Component {
     this.tableHeader(type);
   }
   propertiesList = async data => {
-    const propertyList = await getProperties(data);
+    const propertyList = await getPropertiesReq(data);
     this.setState({ propertyList, filterPropertyList: propertyList });
     this.handleSearch(
       this.state.searchTextValue + " " + this.state.currentSelectProperty
@@ -29,7 +32,21 @@ class CommonPage extends Component {
   };
   tableHeader = async type => {
     let tableKeys = await getTableHeader(type);
-    tableKeys = tableKeys.filter(item => item !== "_id");
+    tableKeys = tableKeys.filter(
+      item =>
+        item !== "_id" &&
+        item !== "Image" &&
+        item !== "Publish" &&
+        item !== "ShowAtHome"
+    );
+    if (type === "corporate") {
+      tableKeys = [
+        "Company Name",
+        "Reference Name",
+        "Designation",
+        ...tableKeys
+      ];
+    }
     this.setState({ tableKeys });
   };
   onFilterProperty = type => {
@@ -66,8 +83,8 @@ class CommonPage extends Component {
             }
             tableKeys={this.state.tableKeys}
             filterPropertyList={this.state.filterPropertyList}
-            updateProperty={updateProperty}
-            deleteProperty={deleteProperty}
+            updateProperty={updatePropertyReq}
+            deleteProperty={deletePropertyReq}
             onSearch={this.onSearch}
             searchTextValue={this.state.searchTextValue}
             propertiesList={this.propertiesList}
