@@ -1,7 +1,7 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 import { getJwt } from "../utility/common";
-axios.defaults.baseURL = "http://localhost:3000";
+//axios.defaults.baseURL = "http://localhost:3000";
 axios.defaults.baseURL = "https://rent-care-server.herokuapp.com/";
 axios.defaults.headers.common["x-auth-token"] = getJwt();
 export const httpService = async (method, url, data = "") => {
@@ -16,7 +16,7 @@ export const httpService = async (method, url, data = "") => {
     }
     return res.data;
   } catch (err) {
-    if (err.response.data.msg) {
+    if (err.response.data && err.response.data.msg) {
       toast.error(err.response.data.msg);
     }
     throw err.response.data;
@@ -39,7 +39,7 @@ export const httpServiceLogin = async (method, url, data = "") => {
     }
     return res.data;
   } catch (err) {
-    if (err.response.data.msg) {
+    if (err.response.data && err.response.data.msg) {
       toast.error(err.response.data.msg);
     }
     throw err.response.data;
